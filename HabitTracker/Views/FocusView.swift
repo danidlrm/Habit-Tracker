@@ -2,13 +2,13 @@
 import SwiftUI
 
 struct FocusView: View {
-    @State private var isFullScreenPresented = false
+    @State private var isFullScreenPresented = false //true se ve, false se cierra
 
     var body: some View {
         VStack {
-            Button(action: {
-                withAnimation {
-                    isFullScreenPresented.toggle()
+            Button(action: { //iniciar el modo de enfoque
+                withAnimation { //transición
+                    isFullScreenPresented.toggle() //activa la vista en pantalla completa
                 }
             }) {
                 Text("Iniciar Enfoque")
@@ -19,15 +19,15 @@ struct FocusView: View {
                     .clipShape(Capsule())
             }
         }
-        .fullScreenCover(isPresented: $isFullScreenPresented) {
+        .fullScreenCover(isPresented: $isFullScreenPresented) { //vista del fullscreen si isFullScreenPresented es true
             ZStack {
                 
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.indigo, Color.purple]),
+                    gradient: Gradient(colors: [Color.indigo, Color.purple]), //color degradado
                     startPoint: .top,
                     endPoint: .bottom
                 )
-                .ignoresSafeArea()
+                .ignoresSafeArea() //cubra toda la pantalla
 
                 VStack {
                     Spacer()
@@ -38,12 +38,12 @@ struct FocusView: View {
                         .foregroundColor(.white)
                         .padding()
                     
-                    Button(action: {
+                    Button(action: { //botón para cerrar la vista
                         withAnimation {
                             isFullScreenPresented = false
                         }
                     }) {
-                        Image(systemName: "xmark.circle.fill")
+                        Image(systemName: "xmark.circle.fill") //botón con x dentro del círculo
                             .font(.largeTitle)
                             .foregroundColor(.white.opacity(0.8))
                     }
