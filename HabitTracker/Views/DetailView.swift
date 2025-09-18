@@ -9,7 +9,7 @@ struct DetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             
-            // Header: Habit Name and Favorite Button
+            
             HStack {
                 Text(habit.name)
                     .font(.largeTitle)
@@ -30,7 +30,7 @@ struct DetailView: View {
             }
             .padding(.bottom, 10)
             
-            // Description
+            
             Text(habit.description)
                 .font(.body)
                 .foregroundColor(.secondary)

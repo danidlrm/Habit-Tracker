@@ -21,7 +21,7 @@ struct FocusView: View {
         }
         .fullScreenCover(isPresented: $isFullScreenPresented) {
             ZStack {
-                // Background Gradient
+                
                 LinearGradient(
                     gradient: Gradient(colors: [Color.indigo, Color.purple]),
                     startPoint: .top,
